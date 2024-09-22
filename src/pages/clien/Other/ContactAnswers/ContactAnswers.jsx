@@ -10,7 +10,10 @@ const ContactAnswers = () => {
   const [isDesc, setIsDesc] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [isFile, setIsFile] = useState(null);
-
+  const [loadings, setLoadings] = useState(true);
+  setTimeout(() => {
+    setLoadings(false);
+  } , 1000);
 
   const handleBack = () =>{
     navigate("/hop-thu-sinh-vien")
@@ -55,7 +58,11 @@ const ContactAnswers = () => {
           </div>
         </div>
       )}
-
+      {loadings ? (
+        <div className="fixed inset-0 flex items-center justify-center z-30 bg-transparent">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+        </div>
+      ) : (
       <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
         <div className="lg:mx-14 xs:mx-0 my-4">
           <div className="bg-white rounded pb-10">
@@ -234,6 +241,7 @@ const ContactAnswers = () => {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 };

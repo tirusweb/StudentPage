@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-const RegisterCondition = () => {
+const DebtLookup = () => {
   const [isShow, setIsShow] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadings, setLoadings] = useState(true);
-
   setTimeout(() => {
-    setLoadings(false);
+    setLoading(false);
   }, 1000);
+
   const handle = (value) => {
     setLoading(true);
 
@@ -64,7 +64,7 @@ const RegisterCondition = () => {
 
   return (
     <>
-      {loadings ? (
+      {loading ? (
         <div className="fixed inset-0 flex items-center justify-center z-30 bg-transparent">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
@@ -75,7 +75,7 @@ const RegisterCondition = () => {
               <div>
                 <div className="lg:flex xs:block items-center justify-between mx-4">
                   <h2 className="text-blue-500 font-bold text-xl pl-3 pt-2">
-                    Đăng ký thi
+                    Tra Cứu Công Nợ
                   </h2>
                   <div className="flex items-center">
                     <div className="mt-6 mr-4 flex items-center mb-2">
@@ -259,4 +259,4 @@ const RegisterCondition = () => {
   );
 };
 
-export default RegisterCondition;
+export default DebtLookup;

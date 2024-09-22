@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
 const WeeklyCalendar = () => {
+  const [loading, setLoading] = useState(true);
+  setTimeout(() => {
+    setLoading(false);
+  }, 1000);
+
   const getMonday = (date) => {
     const day = date.getDay();
     const diff = date.getDate() - day + (day === 0 ? -6 : 1); // Điều chỉnh cho ngày chủ nhật và các ngày khác
@@ -226,194 +231,200 @@ const WeeklyCalendar = () => {
 
   return (
     <>
-      <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
-        <div className="lg:mx-14 xs:mx-0 my-4">
-          <div className="bg-white rounded pb-10">
-            <div>
-              <h2 className="text-blue-500 font-bold text-xl pl-3 pt-2">
-                Lịch học, lịch thi theo tuần
-              </h2>
-              <div className="border-t mt-4 border-gray-100 border-solid"></div>
+      {loading ? (
+        <div className="fixed inset-0 flex items-center justify-center z-30 bg-transparent">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+        </div>
+      ) : (
+        <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+          <div className="lg:mx-14 xs:mx-0 my-4">
+            <div className="bg-white rounded pb-10">
+              <div>
+                <h2 className="text-blue-500 font-bold text-xl pl-3 pt-2">
+                  Lịch học, lịch thi theo tuần
+                </h2>
+                <div className="border-t mt-4 border-gray-100 border-solid"></div>
 
-              {/* Filters */}
-              <div className="pl-3 mt-4 mx-2">
-                <div className="flex items-center justify-end space-x-4">
-                  <div className="flex items-center mb-2">
-                    <input
-                      type="radio"
-                      id="tatca"
-                      name="filter"
-                      className="mr-2 accent-gray-500"
-                    />
-                    <label
-                      className="text-gray-400 font-semibold text-sm"
-                      htmlFor="tatca"
-                    >
-                      Tất cả
-                    </label>
-                  </div>
-                  <div className="flex items-center mb-2">
-                    <input
-                      type="radio"
-                      id="lichhoc"
-                      name="filter"
-                      className="mr-2 accent-gray-500"
-                    />
-                    <label
-                      className="text-gray-400 font-semibold text-sm"
-                      htmlFor="lichhoc"
-                    >
-                      Lịch học
-                    </label>
-                  </div>
-                  <div className="flex items-center mb-2">
-                    <input
-                      type="radio"
-                      id="lichthi"
-                      name="filter"
-                      className="mr-2 accent-gray-500"
-                    />
-                    <label
-                      className="text-gray-400 font-semibold text-sm"
-                      htmlFor="lichthi"
-                    >
-                      Lịch thi
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      type="date"
-                      value={currentWeekStart.toISOString().slice(0, 10)} // Format date to yyyy-MM-dd
-                      onChange={handleDateChange}
-                      className="ml-2 border rounded"
-                    />
-                  </div>
+                {/* Filters */}
+                <div className="pl-3 mt-4 mx-2">
+                  <div className="flex items-center justify-end space-x-4">
+                    <div className="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        id="tatca"
+                        name="filter"
+                        className="mr-2 accent-gray-500"
+                      />
+                      <label
+                        className="text-gray-400 font-semibold text-sm"
+                        htmlFor="tatca"
+                      >
+                        Tất cả
+                      </label>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        id="lichhoc"
+                        name="filter"
+                        className="mr-2 accent-gray-500"
+                      />
+                      <label
+                        className="text-gray-400 font-semibold text-sm"
+                        htmlFor="lichhoc"
+                      >
+                        Lịch học
+                      </label>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        id="lichthi"
+                        name="filter"
+                        className="mr-2 accent-gray-500"
+                      />
+                      <label
+                        className="text-gray-400 font-semibold text-sm"
+                        htmlFor="lichthi"
+                      >
+                        Lịch thi
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="date"
+                        value={currentWeekStart.toISOString().slice(0, 10)} // Format date to yyyy-MM-dd
+                        onChange={handleDateChange}
+                        className="ml-2 border rounded"
+                      />
+                    </div>
 
-                  <div
-                    onClick={goToToday}
-                    className="flex items-center bg-cyan-500 px-4 py-2 rounded"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-6 text-white mr-1"
+                    <div
+                      onClick={goToToday}
+                      className="flex items-center bg-cyan-500 px-4 py-2 rounded"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6.75 2.994v2.25m10.5-2.25v2.25m-14.252 13.5V7.491a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v11.251m-18 0a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25m-18 0v-7.5a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v7.5m-6.75-6h2.25m-9 2.25h4.5m.002-2.25h.005v.006H12v-.006Zm-.001 4.5h.006v.006h-.006v-.005Zm-2.25.001h.005v.006H9.75v-.006Zm-2.25 0h.005v.005h-.006v-.005Zm6.75-2.247h.005v.005h-.005v-.005Zm0 2.247h.006v.006h-.006v-.006Zm2.25-2.248h.006V15H16.5v-.005Z"
-                      />
-                    </svg>
-                    <button className=" text-white font-semibold text-sm ">
-                      Hiện tại
-                    </button>
-                  </div>
-                  <div className="flex items-center bg-cyan-500 px-4 py-2 rounded">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-6 text-white mr-1"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6 text-white mr-1"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6.75 2.994v2.25m10.5-2.25v2.25m-14.252 13.5V7.491a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v11.251m-18 0a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25m-18 0v-7.5a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v7.5m-6.75-6h2.25m-9 2.25h4.5m.002-2.25h.005v.006H12v-.006Zm-.001 4.5h.006v.006h-.006v-.005Zm-2.25.001h.005v.006H9.75v-.006Zm-2.25 0h.005v.005h-.006v-.005Zm6.75-2.247h.005v.005h-.005v-.005Zm0 2.247h.006v.006h-.006v-.006Zm2.25-2.248h.006V15H16.5v-.005Z"
+                        />
+                      </svg>
+                      <button className=" text-white font-semibold text-sm ">
+                        Hiện tại
+                      </button>
+                    </div>
+                    <div className="flex items-center bg-cyan-500 px-4 py-2 rounded">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6 text-white mr-1"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z"
+                        />
+                      </svg>
+                      <button className=" text-white font-semibold text-sm ">
+                        In lịch
+                      </button>
+                    </div>
+                    <div
+                      onClick={handleBackClick}
+                      className="flex items-center bg-cyan-500 px-4 py-2 rounded"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z"
-                      />
-                    </svg>
-                    <button className=" text-white font-semibold text-sm ">
-                      In lịch
-                    </button>
-                  </div>
-                  <div
-                    onClick={handleBackClick}
-                    className="flex items-center bg-cyan-500 px-4 py-2 rounded"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-6 text-white mr-1"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6 text-white mr-1"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.75 19.5 8.25 12l7.5-7.5"
+                        />
+                      </svg>
+                      <button className=" text-white font-semibold text-sm ">
+                        Trở về
+                      </button>
+                    </div>
+                    <div
+                      onClick={handleNextClick}
+                      className="flex items-center bg-cyan-500 px-4 py-2 rounded"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15.75 19.5 8.25 12l7.5-7.5"
-                      />
-                    </svg>
-                    <button className=" text-white font-semibold text-sm ">
-                      Trở về
-                    </button>
-                  </div>
-                  <div
-                    onClick={handleNextClick}
-                    className="flex items-center bg-cyan-500 px-4 py-2 rounded"
-                  >
-                    <button className=" text-white font-semibold text-sm ">
-                      Tiếp
-                    </button>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-6 text-white mr-1"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
+                      <button className=" text-white font-semibold text-sm ">
+                        Tiếp
+                      </button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6 text-white mr-1"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Table */}
-              <div className="mt-4 mx-2 overflow-x-auto">
-                <table className="min-w-full table-auto border-collapse border border-gray-300">
-                  <thead>
-                    <tr>
-                      <th className="border border-gray-300 bg-cyan-500 text-white px-4 py-2">
-                        Ca học
-                      </th>
-                      {getWeekDays(currentWeekStart).map((day, index) => (
-                        <th
-                          key={index}
-                          className="border border-gray-300 bg-cyan-500 text-white px-4 py-2"
-                        >
-                          {
-                            [
-                              "Thứ 2",
-                              "Thứ 3",
-                              "Thứ 4",
-                              "Thứ 5",
-                              "Thứ 6",
-                              "Thứ 7",
-                              "Chủ nhật",
-                            ][index]
-                          }{" "}
-                          <br />
-                          {getFormattedDate(day)}
+                {/* Table */}
+                <div className="mt-4 mx-2 overflow-x-auto">
+                  <table className="min-w-full table-auto border-collapse border border-gray-300">
+                    <thead>
+                      <tr>
+                        <th className="border border-gray-300 bg-cyan-500 text-white px-4 py-2">
+                          Ca học
                         </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>{renderSchedule(schedule)}</tbody>
-                </table>
+                        {getWeekDays(currentWeekStart).map((day, index) => (
+                          <th
+                            key={index}
+                            className="border border-gray-300 bg-cyan-500 text-white px-4 py-2"
+                          >
+                            {
+                              [
+                                "Thứ 2",
+                                "Thứ 3",
+                                "Thứ 4",
+                                "Thứ 5",
+                                "Thứ 6",
+                                "Thứ 7",
+                                "Chủ nhật",
+                              ][index]
+                            }{" "}
+                            <br />
+                            {getFormattedDate(day)}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>{renderSchedule(schedule)}</tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

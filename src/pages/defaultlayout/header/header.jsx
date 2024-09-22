@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import avatar from "../../../../src/image/avatar.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ModalPass from "./Modal/ModalPass";
 
 const Header = () => {
+  const [isShow, setIsShow] = useState(false);
+  const [isModalChangePass, setIsModalChangePass] = useState(false);
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleHome = () => navigate("/");
+  const toggleMenu = () => setIsShow(!isShow);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsShow(false);
+      }
+    };
+    if (isShow) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isShow]);
+
+  const openModal = () => setIsModalChangePass(true);
+  const closeModal = () => setIsModalChangePass(false);
+
   return (
     <>
       <div className=" z-30 containe fixed left-0 right-0">
@@ -10,7 +36,7 @@ const Header = () => {
           <div className="flex items-start justify-between w-full h-[60px]  bg-white shadow-lg">
             <Link to="/">
               <img
-                className="pl-4 h-[50px] w-auto"
+                className="pl-4 h-[50px] w-auto object-cover"
                 src="https://media.uneti.edu.vn/Media/2_SVUNETI/FolderFunc/202305/Images/logo-20230202100753-e-20230511035750-e.png"
                 alt="Logo Uneti"
               />
@@ -41,7 +67,7 @@ const Header = () => {
             </div>
             <div className="flex flex-1 pr-4 fle font-semibold items-center justify-end text-gray-500 mr-4 mt-3">
               <div className=" xs:hidden lg:block">
-                <div className="flex mr-4  text-sm">
+                <div onClick={handleHome} className="flex mr-4 cursor-pointer  text-sm">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -78,19 +104,46 @@ const Header = () => {
                   Thông báo
                 </div>
               </div>
-              <div className="flex items-center">
-                <img
-                  className=" h-[40px] w-[40px] rounded-full mr-1"
-                  src={avatar}
-                />
-                <span className=" xs:hidden lg:block text-sm">
-                  Nguyễn Trung Hiếu
-                </span>
+              <div>
+                <div
+                  onClick={toggleMenu}
+                  className="flex items-center cursor-pointer"
+                >
+                  <img
+                    className=" h-[40px] w-[40px] rounded-full mr-1"
+                    src={avatar}
+                  />
+                  <span className=" xs:hidden lg:block text-sm">
+                    Nguyễn Trung Hiếu
+                  </span>
+                </div>
+                <div
+                  ref={menuRef}
+                  className={` ${
+                    isShow ? " block" : " hidden"
+                  }  bg-white shadow-xl w-auto  fixed top-[64px] rounded right-2`}
+                >
+                  <ul>
+                    <li className="text-gray-500 px-6 py-2 cursor-pointer  hover:bg-gray-200 border-b border-solid border-gray-100 font-normal mt-2 text-sm">
+                      <Link to={"/thong-tin-sinh-vien"}>Thông tin cá nhân</Link>
+                    </li>
+                    <li
+                      onClick={openModal}
+                      className="text-gray-500 px-6 py-2 cursor-pointer hover:bg-gray-200 border-b border-solid border-gray-100 font-normal mt-2 text-sm"
+                    >
+                      <Link>Đổi mật khẩu</Link>
+                    </li>
+                    <li className="text-gray-500 px-6 py-2 cursor-pointer hover:bg-gray-200 border-b border-solid border-gray-100 font-normal mt-2 text-sm">
+                      <Link>Đăng xuất</Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {isModalChangePass && <ModalPass onclose={closeModal} />}
     </>
   );
 };

@@ -442,7 +442,7 @@ const Sidebar = () => {
               >
                 <li className="py-2 pl-4 text-sm hover:bg-cyan-600">
                   <Link
-                    to="/dang-ki-mon-hoc-dieu-kien"
+                    to="/tra-cuu-cong-no"
                     className="text-inherit no-underline"
                   >
                     Tra cứu công nợ
