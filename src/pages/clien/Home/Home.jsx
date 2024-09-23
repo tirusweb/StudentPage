@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ChartBar from "./BarChart";
 import RadiaChart from "./RadiChart";
 import avatar from "../../../image/avatar.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -117,12 +117,12 @@ const Home = () => {
                           className=" block object-cover rounded-full w-[120px] h-[120px] "
                           src={avatar}
                         />
-                        <a
-                          href="thong-tin-sinh-vien"
+                        <Link
+                          to="/thong-tin-sinh-vien"
                           className="  text-center ml-4 text-blue-400 text-sm font-normal"
                         >
                           Xem chi tiết
-                        </a>
+                        </Link>
                       </div>
                       {ApiInforStudent.map((student) => (
                         <div className="md:col-span-1 xs:col-span-2 lg:text-sm xs:ml-2 xs:text-xs">
@@ -198,12 +198,12 @@ const Home = () => {
                         />
                       </svg>
                     </div>
-                    <a
-                      href="ghi-chu-nhac-nho"
+                    <Link
+                      to="/ghi-chu-nhac-nho"
                       className=" text-center ml-4 text-blue-400 text-sm font-normal"
                     >
                       Xem chi tiết
-                    </a>
+                    </Link>
                   </div>
                   <div className=" bg-sky-200 rounded lg:col-span-1 xs:col-span-3 shadow-lg row-span-1">
                     {" "}
@@ -228,12 +228,12 @@ const Home = () => {
                         />
                       </svg>
                     </div>
-                    <a
-                      href="lich-hoc-theo-tuan"
+                    <Link
+                      to="/lich-hoc-theo-tuan"
                       className=" text-center ml-4 text-blue-400 text-sm font-normal"
                     >
                       Xem chi tiết
-                    </a>
+                    </Link>
                   </div>
                   <div className=" bg-amber-100 lg:col-span-1 xs:col-span-3 rounded shadow-lg row-span-1">
                     <p className=" text-amber-500 pt-2 pl-2">
@@ -257,12 +257,12 @@ const Home = () => {
                         />
                       </svg>
                     </div>
-                    <a
-                      href="lich-hoc-theo-tuan"
+                    <Link
+                      to="/lich-hoc-theo-tuan"
                       className=" text-center ml-4 text-amber-400 text-sm font-normal"
                     >
                       Xem chi tiết
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className=" grid grid-cols-8 gap-2 mt-2">

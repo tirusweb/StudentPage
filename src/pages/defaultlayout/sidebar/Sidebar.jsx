@@ -109,9 +109,9 @@ const Sidebar = () => {
                 />
               </svg>
 
-              <a href="/" className="uppercase text-sm font-semibold pl-2">
+              <Link to="/" className="uppercase text-sm font-semibold pl-2">
                 Trang chủ
-              </a>
+              </Link>
             </li>
             <li
               onClick={toggleDropDown}

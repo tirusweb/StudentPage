@@ -10,6 +10,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleHome = () => navigate("/");
+  const handleNotifi = () => navigate("/ghi-chu-nhac-nho");
+  const handleLogin = () => navigate("/login");
   const toggleMenu = () => setIsShow(!isShow);
 
   useEffect(() => {
@@ -85,7 +87,7 @@ const Header = () => {
                   Trang chủ
                 </div>
               </div>
-              <div className=" xs:hidden lg:block">
+              <div onClick={handleNotifi} className=" cursor-pointer xs:hidden lg:block">
                 <div className="flex mr-4 text-sm ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +136,7 @@ const Header = () => {
                       <Link>Đổi mật khẩu</Link>
                     </li>
                     <li className="text-gray-500 px-6 py-2 cursor-pointer hover:bg-gray-200 border-b border-solid border-gray-100 font-normal mt-2 text-sm">
-                      <Link>Đăng xuất</Link>
+                      <a href="/login">Đăng xuất</a>
                     </li>
                   </ul>
                 </div>

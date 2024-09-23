@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 import DefaultLayout from "../src/pages/defaultlayout/Defaultlayout";
 import Home from "../src/pages/clien/Home/Home";
@@ -27,16 +31,28 @@ import ContactAnswers from "./pages/clien/Other/ContactAnswers/ContactAnswers";
 import ContactForFeedback from "./pages/clien/Other/ContactForFeedback/ContactForFeedback";
 import Mailbox from "./pages/clien/Other/Mailbox/Mailbox";
 import DebtLookup from "./pages/clien/Tuition/DebtLookup/DebtLookup";
+import Login from "./Login/Login";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const handleLoading = (status) => {
-    setLoading(status); 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+    console.log("isAuthenticated:", true);
   };
+  const handleLoading = (status) => {
+    setLoading(status);
+  };
+
+  const PrivateRoute = ({ children }) => {
+    return isAuthenticated ? children : <Navigate to="/login" />;
+  };
+
   return (
     <Router>
       <div>
-      {loading && (
+        {loading && (
           <div className="fixed inset-0 flex items-center justify-center z-30 bg-transparent">
             <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
           </div>
@@ -44,176 +60,283 @@ function App() {
         <Routes>
           <Route
             exact
+            path="/login"
+            element={
+              <Login
+                handleLogin={handleLogin}
+                isAuthenticated={isAuthenticated}
+                handleLoading={handleLoading}
+              />
+            }
+          />
+          {/* Protected Routes */}
+          <Route
+            exact
             path="/"
             element={
-              <DefaultLayout children = {<Home handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<Home handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
           <Route
             exact
             path="/ghi-chu-nhac-nho"
             element={
-              <DefaultLayout children = {<ReminderNotes handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<ReminderNotes handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
           <Route
             exact
             path="/thong-tin-sinh-vien"
             element={
-              <DefaultLayout children = {<InforStudent handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<InforStudent handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/de-xuat-bieu-mau"
             element={
-              <DefaultLayout children = {<TemPlates handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<TemPlates handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
-          /> 
+          />
           <Route
             exact
             path="/cap-nhat-thong-tin"
             element={
-              <DefaultLayout children = {<UpdateStudent handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<UpdateStudent handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-          
-           <Route
+          <Route
             exact
             path="/danh-sach-ho-so"
             element={
-              <DefaultLayout children = {<ListProfiles handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<ListProfiles handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-
           {/* Học tập */}
           <Route
             exact
             path="/ket-qua-hoc-tap"
             element={
-              <DefaultLayout children = {<StudyResuit handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<StudyResuit handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
           <Route
             exact
             path="/lich-hoc-theo-tuan"
             element={
-              <DefaultLayout children = {<WeeklyCalendar handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<WeeklyCalendar handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/lich-theo-tien-do"
             element={
-              <DefaultLayout children = {<WeekProgress handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<WeekProgress handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/lich-toan-truong"
             element={
-              <DefaultLayout children = {<SchoolCalender handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<SchoolCalender handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-            <Route
+          <Route
             exact
             path="/thong-tin-diem-danh"
             element={
-              <DefaultLayout children = {<ScoreInformation handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<ScoreInformation handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
           <Route
             exact
             path="/ket-qua-ren-luyen"
             element={
-              <DefaultLayout children = {<LearningOutcomes handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<LearningOutcomes handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-            <Route
+          <Route
             exact
             path="/ke-hoach-thi"
             element={
-              <DefaultLayout children = {<ExamPlan handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<ExamPlan handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-            <Route
+          <Route
             exact
             path="/khen-thuong"
             element={
-              <DefaultLayout children = {<Reward handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<Reward handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/chuong-trinh-khung"
             element={
-              <DefaultLayout children = {<FramworkProgram handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<FramworkProgram handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/dang-ki-hoc-phan"
             element={
-              <DefaultLayout children = {<RegisterCourse handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<RegisterCourse handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/dang-ki-thi"
             element={
-              <DefaultLayout children = {<RegisterForExam handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<RegisterForExam handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/dang-ki-mon-hoc-dieu-kien"
             element={
-              <DefaultLayout children = {<RegisterCondition handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<RegisterCondition handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/thanh-toan-truc-tuyen"
             element={
-              <DefaultLayout children = {<OnlinePayment handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<OnlinePayment handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/phieu-thu-tong-hop"
             element={
-              <DefaultLayout children = {<Consolidated handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<Consolidated handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/lien-he-giai-dap-thac-mac"
             element={
-              <DefaultLayout children = {<ContactAnswers handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<ContactAnswers handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/lien-he-gop-y"
             element={
-              <DefaultLayout children = {<ContactForFeedback handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={
+                    <ContactForFeedback handleLoading={handleLoading} />
+                  }
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/hop-thu-sinh-vien"
             element={
-              <DefaultLayout children = {<Mailbox handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<Mailbox handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-           <Route
+          <Route
             exact
             path="/tra-cuu-cong-no"
             element={
-              <DefaultLayout children = {<DebtLookup handleLoading={handleLoading}/>}/>
+              <PrivateRoute>
+                <DefaultLayout
+                  children={<DebtLookup handleLoading={handleLoading} />}
+                />
+              </PrivateRoute>
             }
           />
-          
         </Routes>
       </div>
     </Router>

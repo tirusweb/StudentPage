@@ -5,31 +5,46 @@ const ModalPass = ({ onclose }) => {
   const [isNewPass, setIsNewPass] = useState("");
   const [isRePass, setIsRePass] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isFalse, setIsFalse] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handlePass = () => {
-    const Data = {
-      isPass,
-      isNewPass,
-      isRePass,
-    };
-    console.log("Data  : ", Data);
-    if (isNewPass === isRePass) {
-      setIsSuccess(true);
-      setTimeout(() => {
-        setIsSuccess(false);
-        onclose();
-      }, 2000);
-    } else {
-      setIsFalse(true);
+    const correctCurrentPassword = "18082016"; // Replace with your actual password check
+
+    if (isPass !== correctCurrentPassword) {
+      setErrorMessage("Mật khẩu cũ không đúng.");
+      return;
     }
+
+    if (isNewPass.length < 8) { // Example: New password must be at least 8 characters
+      setErrorMessage("Mật khẩu mới phải có ít nhất 8 ký tự.");
+      return;
+    }
+
+    if (isNewPass !== isRePass) {
+      setErrorMessage("Mật khẩu mới và xác nhận không giống nhau.");
+      return;
+    }
+
+    setIsSuccess(true);
+    setTimeout(() => {
+      setIsSuccess(false);
+      resetFields();
+      onclose();
+    }, 2000);
+  };
+
+  const resetFields = () => {
+    setIsPass("");
+    setIsNewPass("");
+    setIsRePass("");
+    setErrorMessage("");
   };
 
   return (
     <>
       {isSuccess && (
         <div className="fixed bottom-4 right-4 z-50">
-          <div className="bg-white rounded p-4 shadow-lg  border-b-4 border-green-500 animate-borderMove">
+          <div className="bg-white rounded p-4 shadow-lg border-b-4 border-green-500 animate-borderMove">
             <h2 className="text-green-500 font-bold">Đổi thành công!</h2>
           </div>
         </div>
@@ -42,7 +57,8 @@ const ModalPass = ({ onclose }) => {
             onChange={(e) => setIsPass(e.target.value)}
             type="password"
             className="border p-2 w-full mb-4"
-            placeholder="Nhập mật khẩu củ  ..."
+            placeholder="Nhập mật khẩu củ ..."
+            required
           />
           <input
             value={isNewPass}
@@ -50,6 +66,7 @@ const ModalPass = ({ onclose }) => {
             type="password"
             className="border p-2 w-full mb-4"
             placeholder="Nhập mật khẩu mới ..."
+            required
           />
           <input
             value={isRePass}
@@ -57,11 +74,10 @@ const ModalPass = ({ onclose }) => {
             type="password"
             className="border p-2 w-full mb-4"
             placeholder="Xác nhận lại mật khẩu ..."
+            required
           />
-          {isFalse && (
-            <p className=" text-red-400 font-normal text-sm ">
-              Mật khẩu vừa nhập không giống nhau
-            </p>
+          {errorMessage && (
+            <p className="text-red-400 font-normal text-sm">{errorMessage}</p>
           )}
 
           <div className="flex justify-end">

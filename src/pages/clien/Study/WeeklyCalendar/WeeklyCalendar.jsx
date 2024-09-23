@@ -157,6 +157,139 @@ const WeeklyCalendar = () => {
       afternoon: [],
       evening: [],
     },
+    "24/09/2024": {
+      morning: [
+        {
+          subject: "Thực hành web",
+          code: "DHTI15A4HN",
+          classCode: "010100136806",
+          period: "1 - 6",
+          room: "Phòng hiệu năng cao 02/H.A9-507",
+          teacher: "GV: Điền Thị Hồng Hà",
+        },
+      ],
+      afternoon: [
+        {
+          subject: "Thực hành web",
+          code: "DHTI15A4HN",
+          classCode: "010100136806",
+          period: "7 - 9",
+          room: "Phòng hiệu năng cao 02/H.A9-507",
+          teacher: "GV: Điền Thị Hồng Hà",
+        },
+      ],
+      evening: [],
+    },
+    "27/09/2024": {
+      morning: [
+        {
+          subject: "Thực tập an toàn thông tin",
+          code: "DHTI15A4HN",
+          classCode: "010100018106",
+          period: "1 - 3",
+          room: "Phòng máy tính 01/H.A9-603",
+          teacher: "GV: Phạm Minh Thái",
+        },
+        {
+          subject: "Tư tưởng Hồ Chí Minh",
+          code: "DHTI15A18HN",
+          classCode: "010100057352",
+          period: "4 - 6",
+          room: " Phòng học/H.A9-403",
+          teacher: "GV: Ngô Thị Mai",
+        },
+      ],
+      afternoon: [],
+      evening: [
+        {
+          subject: "Thực hành lập trình .NET",
+          code: "DHTI15A4HN",
+          classCode: "010100018406",
+          period: "14 - 16",
+          room: " https://meet.google.com/aws-ytvt-qts",
+          teacher: "GV: Vũ Anh Tuấn",
+        },
+      ],
+    },
+    "30/09/2024": {
+      morning: [
+        {
+          subject: "Lập trình web với Java",
+          code: "DHTI15A4HN",
+          classCode: "010100202706",
+          period: "3 - 6",
+          room: "Phòng học/H.A9-407",
+          teacher: "GV: Lương Thị Thảo Hiếu",
+        },
+      ],
+      afternoon: [],
+      evening: [
+        {
+          subject: "Thực tập an toàn thông tin",
+          code: "DHTI15A4HN",
+          classCode: "010100018106",
+          period: "14 - 16",
+          room: "https://meet.google.com/sxm-dbxg-hhb",
+          teacher: "",
+        },
+      ],
+    },
+    "01/10/2024": {
+      morning: [],
+      afternoon: [
+        {
+          subject: "Quản trị mạng",
+          code: "DHTI15A4HN",
+          classCode: "010100123456",
+          period: "7 - 9",
+          room: "Phòng học/H.A9-408",
+          teacher: "GV: Nguyễn Văn A",
+        },
+      ],
+      evening: [],
+    },
+    "02/10/2024": {
+      morning: [
+        {
+          subject: "Cơ sở dữ liệu",
+          code: "DHTI15A4HN",
+          classCode: "010100654321",
+          period: "1 - 3",
+          room: "Phòng học/H.A9-409",
+          teacher: "GV: Trần Thị B",
+        },
+      ],
+      afternoon: [],
+      evening: [],
+    },
+    "03/10/2024": {
+      morning: [],
+      afternoon: [],
+      evening: [
+        {
+          subject: "Phát triển ứng dụng di động",
+          code: "DHTI15A4HN",
+          classCode: "010100111111",
+          period: "14 - 16",
+          room: "Phòng học/H.A9-410",
+          teacher: "GV: Lê Văn C",
+        },
+      ],
+    },
+    "05/10/2024": {
+      morning: [
+        {
+          subject: "Thực hành mạng",
+          code: "DHTI15A4HN",
+          classCode: "010100121212",
+          period: "1 - 6",
+          room: "Phòng hiệu năng cao 02/H.A9-507",
+          teacher: "GV: Điền Thị Hồng Hà",
+        },
+      ],
+      afternoon: [],
+      evening: [],
+    },
   };
 
   const getFormattedDate = (date) => {
