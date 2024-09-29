@@ -13,7 +13,7 @@ const TemPlates = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container w-screen overflow-y-auto shadow-lg h-full bg-gray-200">
+        <div className=" w-screen overflow-y-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div className="">
@@ -21,8 +21,8 @@ const TemPlates = () => {
                   Đề xuất biểu mẫu
                 </h2>
                 <div className="border-t mt-4 border-gray-100 border-solid"></div>
-                <div className="">
-                  <table className="table-auto w-full">
+                <div className=" overflow-x-auto w-full">
+                  <table className="table-fixed  overflow-x-auto  xs:w-[900px] lg:w-full ">
                     <thead>
                       <tr className="w-full h-10 text-center leading-10 bg-blue-500 text-white font-bold text-sm grid grid-cols-11">
                         <th className="border border-gray-200 col-span-1">

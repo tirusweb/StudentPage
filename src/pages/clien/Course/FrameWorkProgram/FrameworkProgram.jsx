@@ -863,7 +863,7 @@ const FramworkProgram = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className=" w-screen overflow-y-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div>
@@ -871,179 +871,182 @@ const FramworkProgram = () => {
                   Chương trình khung
                 </h2>
                 <div className="border-t mt-4 border-gray-100 border-solid"></div>
-                <table className="border border-gray-200 table-auto w-full">
-                  <thead>
-                    <tr className="py-8 bg-cyan-500">
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        STT
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Tên môn học/Học phần
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Mã Học phần
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Học phần
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Số TC
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Số tiết LT
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Nhóm tự chọn
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Số TC bắt buộc của nhóm
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Đạt
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Đề cương môn học
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {FakeApi.map((infor) => (
-                      <React.Fragment key={infor.id}>
-                        <tr
-                          onClick={() => handleToggle(infor.id)}
-                          className="cursor-pointer bg-gray-100 hover:bg-gray-200"
-                        >
-                          <td
-                            colSpan="4"
-                            className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                <div className="w-full overflow-x-auto">
+                  <table className="border border-gray-200 overflow-x-auto table-fixed xs:w-[900px] lg:w-full">
+                    <thead>
+                      <tr className="py-8 bg-cyan-500">
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          STT
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Tên môn học/Học phần
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Mã Học phần
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Học phần
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Số TC
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Số tiết LT
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Nhóm tự chọn
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Số TC bắt buộc của nhóm
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Đạt
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Đề cương môn học
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {FakeApi.map((infor) => (
+                        <React.Fragment key={infor.id}>
+                          <tr
+                            onClick={() => handleToggle(infor.id)}
+                            className="cursor-pointer bg-gray-100 hover:bg-gray-200"
                           >
-                            {infor.semester}
-                          </td>
-                          <td
-                            colSpan="1"
-                            className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
-                          >
-                            {infor.total}
-                          </td>
-                          <td
-                            colSpan="6"
-                            className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-left"
-                          ></td>
-                        </tr>
-                        {isShow === infor.id &&
-                          infor.data.map((item) => (
-                            <tr key={item.stt}>
-                              <td className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                {item.stt}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                {item.name}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                {item.code}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                {item.tc}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                {item.section}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                {item.practive}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                {item.team}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500"></td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  strokeWidth={1.5}
-                                  stroke="currentColor"
-                                  className="size-6 font-bold text-green-500 "
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
-                                  />
-                                </svg>
-                              </td>
-                              {item.source === "" ? (
-                                <td
-                                  className={`border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500`}
-                                ></td>
-                              ) : (
-                                <td
-                                  className={`border hover:text-cyan-500 text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500`}
-                                >
-                                  <a href={item.source} className="">
-                                    Xem
-                                  </a>
+                            <td
+                              colSpan="4"
+                              className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                            >
+                              {infor.semester}
+                            </td>
+                            <td
+                              colSpan="1"
+                              className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                            >
+                              {infor.total}
+                            </td>
+                            <td
+                              colSpan="6"
+                              className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-left"
+                            ></td>
+                          </tr>
+                          {isShow === infor.id &&
+                            infor.data.map((item) => (
+                              <tr key={item.stt}>
+                                <td className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  {item.stt}
                                 </td>
-                              )}
-                            </tr>
-                          ))}
-                      </React.Fragment>
-                    ))}
-                    <tr>
-                      <td
-                        colSpan={4}
-                        className="border text-left font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      >
-                        Tổng TC yêu cầu
-                      </td>
-                      <td
-                        colSpan={1}
-                        className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      >
-                        139
-                      </td>
-                      <td
-                        colSpan={5}
-                        className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      ></td>
-                    </tr>
-                    <tr>
-                      <td
-                        colSpan={4}
-                        className="border text-left font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      >
-                        Tổng TC bắt buộc
-                      </td>
-                      <td
-                        colSpan={1}
-                        className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      >
-                        128
-                      </td>
-                      <td
-                        colSpan={5}
-                        className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      ></td>
-                    </tr>
-                    <tr>
-                      <td
-                        colSpan={4}
-                        className="border text-left font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      >
-                        Tổng TC tự chọn
-                      </td>
-                      <td
-                        colSpan={1}
-                        className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      >
-                        11
-                      </td>
-                      <td
-                        colSpan={5}
-                        className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      ></td>
-                    </tr>
-                  </tbody>
-                </table>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  {item.name}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  {item.code}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  {item.tc}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  {item.section}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  {item.practive}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  {item.team}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500"></td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="size-6 font-bold text-green-500 "
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
+                                    />
+                                  </svg>
+                                </td>
+                                {item.source === "" ? (
+                                  <td
+                                    className={`border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500`}
+                                  ></td>
+                                ) : (
+                                  <td
+                                    className={`border hover:text-cyan-500 text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-500`}
+                                  >
+                                    <a href={item.source} className="">
+                                      Xem
+                                    </a>
+                                  </td>
+                                )}
+                              </tr>
+                            ))}
+                        </React.Fragment>
+                      ))}
+                      <tr>
+                        <td
+                          colSpan={4}
+                          className="border text-left font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        >
+                          Tổng TC yêu cầu
+                        </td>
+                        <td
+                          colSpan={1}
+                          className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        >
+                          139
+                        </td>
+                        <td
+                          colSpan={5}
+                          className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td
+                          colSpan={4}
+                          className="border text-left font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        >
+                          Tổng TC bắt buộc
+                        </td>
+                        <td
+                          colSpan={1}
+                          className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        >
+                          128
+                        </td>
+                        <td
+                          colSpan={5}
+                          className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td
+                          colSpan={4}
+                          className="border text-left font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        >
+                          Tổng TC tự chọn
+                        </td>
+                        <td
+                          colSpan={1}
+                          className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        >
+                          11
+                        </td>
+                        <td
+                          colSpan={5}
+                          className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
               </div>
             </div>
           </div>

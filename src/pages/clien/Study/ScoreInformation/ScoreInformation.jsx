@@ -530,7 +530,7 @@ const ScoreInformation = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className=" w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div>
@@ -538,84 +538,87 @@ const ScoreInformation = () => {
                   Thông tin điểm danh
                 </h2>
                 <div className="border-t mt-4 border-gray-100 border-solid"></div>
-                <table className="border border-gray-200 table-auto w-full">
-                  <thead>
-                    <tr className="py-8 bg-cyan-500">
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        STT
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Mã lớp học phần
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Tên môn học/học phần
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        TC
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Số tiết nghỉ có phép
-                      </th>
-                      <th className="text-center text-white tracking-wider">
-                        Số tiết nghỉ không phép
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {FakeApi.map((infor) => (
-                      <React.Fragment key={infor.id}>
-                        <tr
-                          onClick={() => handleToggle(infor.id)}
-                          className="cursor-pointer bg-gray-100 hover:bg-gray-200"
-                        >
-                          <td
-                            colSpan="6"
-                            className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-left"
+                <div className=" overflow-x-auto w-full">
+
+                  <table className="border border-gray-200 table-fixed xs:w-[900px] lg:w-full">
+                    <thead>
+                      <tr className="py-8 bg-cyan-500">
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          STT
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Mã lớp học phần
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Tên môn học/học phần
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          TC
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Số tiết nghỉ có phép
+                        </th>
+                        <th className="text-center text-white tracking-wider">
+                          Số tiết nghỉ không phép
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {FakeApi.map((infor) => (
+                        <React.Fragment key={infor.id}>
+                          <tr
+                            onClick={() => handleToggle(infor.id)}
+                            className="cursor-pointer bg-gray-100 hover:bg-gray-200"
                           >
-                            {infor.semester}
-                          </td>
-                        </tr>
-                        {isShow === infor.id &&
-                          infor.data.map((item) => (
-                            <tr key={item.stt}>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
-                                {item.stt}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
-                                {item.code}
-                              </td>
-                              <td className="border text-left font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
-                                {item.name}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
-                                {item.tc}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
-                                {item.number}
-                              </td>
-                              <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
-                                {item.permission}
-                              </td>
-                            </tr>
-                          ))}
-                      </React.Fragment>
-                    ))}
-                    <tr>
-                      <td
-                        colSpan={4}
-                        className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
-                      >
-                        Tổng
-                      </td>
-                      <td className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500">
-                        3
-                      </td>
-                      <td className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500">
-                        6
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                            <td
+                              colSpan="6"
+                              className="py-3 pl-2 font-bold text-red-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-left"
+                            >
+                              {infor.semester}
+                            </td>
+                          </tr>
+                          {isShow === infor.id &&
+                            infor.data.map((item) => (
+                              <tr key={item.stt}>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
+                                  {item.stt}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
+                                  {item.code}
+                                </td>
+                                <td className="border text-left font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
+                                  {item.name}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
+                                  {item.tc}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
+                                  {item.number}
+                                </td>
+                                <td className="border text-center font-semibold lg:text-sm xs:text-xs px-3 py-2 text-gray-400">
+                                  {item.permission}
+                                </td>
+                              </tr>
+                            ))}
+                        </React.Fragment>
+                      ))}
+                      <tr>
+                        <td
+                          colSpan={4}
+                          className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500"
+                        >
+                          Tổng
+                        </td>
+                        <td className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500">
+                          3
+                        </td>
+                        <td className="border text-center font-bold lg:text-sm xs:text-xs px-3 py-2 text-red-500">
+                          6
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

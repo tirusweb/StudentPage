@@ -12,7 +12,7 @@ const Reward = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className=" w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div>
@@ -38,74 +38,80 @@ const Reward = () => {
                   </select>
                 </div>
                 <div className="border-t mt-4 border-gray-100 border-solid"></div>
-                <table className=" overflow-x-auto border border-gray-200 table-auto w-full">
-                  <thead>
-                    <tr className="py-8 bg-cyan-500">
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        STT
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Ngày khen thưởng
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Tên loại khen thưởng
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Tên khen thưởng
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Tên đợt
-                      </th>
-                      <th className="text-center text-white tracking-wider">
-                        Ghi chú
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
-                      <td
-                        colSpan="6"
-                        className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
-                      >
-                        Không có dữ liệu hiển thị
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table className="overflow-x-auto border border-gray-200 table-auto w-full">
-                  <thead>
-                    <tr className="py-8 bg-cyan-500">
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        STT
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Ngày xử lý
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Hành vi
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Xử lý
-                      </th>
-                      <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                        Tên đợt
-                      </th>
-                      <th className="text-center text-white tracking-wider">
-                        Ghi chú
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
-                      <td
-                        colSpan="6"
-                        className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
-                      >
-                        Không có dữ liệu hiển thị
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className=" overflow-x-auto w-full">
+
+                  <table className=" overflow-x-auto border border-gray-200 table-fixed xs:w-[900px] lg:w-full">
+                    <thead>
+                      <tr className="py-8 bg-cyan-500">
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          STT
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Ngày khen thưởng
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Tên loại khen thưởng
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Tên khen thưởng
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Tên đợt
+                        </th>
+                        <th className="text-center text-white tracking-wider">
+                          Ghi chú
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
+                        <td
+                          colSpan="6"
+                          className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                        >
+                          Không có dữ liệu hiển thị
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className=" overflow-x-auto w-full">
+                  <table className="overflow-x-auto border border-gray-200 table-fixed xs:w-[900px] lg:w-full">
+                    <thead>
+                      <tr className="py-8 bg-cyan-500">
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          STT
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Ngày xử lý
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Hành vi
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Xử lý
+                        </th>
+                        <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                          Tên đợt
+                        </th>
+                        <th className="text-center text-white tracking-wider">
+                          Ghi chú
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
+                        <td
+                          colSpan="6"
+                          className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                        >
+                          Không có dữ liệu hiển thị
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
               </div>
             </div>
           </div>

@@ -95,51 +95,53 @@ const WeekProgress = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container mx-auto px-4 py-4">
-          <div className="bg-white shadow-lg rounded-lg overflow-x-auto">
+        <div className=" mx-auto px-4 py-4">
+          <div className="bg-white shadow-lg rounded-lg">
             <h2 className="text-blue-500 font-bold text-xl pl-4 pt-4">
               Lịch học, lịch thi theo tiến độ
             </h2>
-            <table className="min-w-full mt-4 border-collapse border">
-              <thead>
-                <tr className="bg-cyan-500 text-white text-center">
-                  <th className="py-2 px-4 border">STT</th>
-                  <th className="py-2 px-4 border">Mã học phần</th>
-                  <th className="py-2 px-4 border">Tên môn học/học phần</th>
-                  <th className="py-2 px-4 border">Số tín chỉ</th>
-                  <th className="py-2 px-4 border">Thứ</th>
-                  <th className="py-2 px-4 border">Tiết</th>
-                  <th className="py-2 px-4 border">Loại lịch</th>
-                  <th className="py-2 px-4 border">Phòng</th>
-                  <th className="py-2 px-4 border">Nhóm</th>
-                  <th className="py-2 px-4 border">Giờ</th>
-                  <th className="py-2 px-4 border">Bắt đầu</th>
-                  <th className="py-2 px-4 border">Kết thúc</th>
-                  <th className="py-2 px-4 border">Mã giảng viên</th>
-                  <th className="py-2 px-4 border">Giảng viên</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tableData.map((row, index) => (
-                  <tr key={index} className="text-center text-gray-400 text-sm">
-                    <td className="py-2 px-4 border">{row.stt}</td>
-                    <td className="py-2 px-4 border">{row.courseCode}</td>
-                    <td className="py-2 px-4 border">{row.courseName}</td>
-                    <td className="py-2 px-4 border">{row.credits}</td>
-                    <td className="py-2 px-4 border">{row.day}</td>
-                    <td className="py-2 px-4 border">{row.period}</td>
-                    <td className="py-2 px-4 border">{row.type}</td>
-                    <td className="py-2 px-4 border">{row.room}</td>
-                    <td className="py-2 px-4 border">{row.group}</td>
-                    <td className="py-2 px-4 border">{row.time}</td>
-                    <td className="py-2 px-4 border">{row.startDate}</td>
-                    <td className="py-2 px-4 border">{row.endDate}</td>
-                    <td className="py-2 px-4 border">{row.teacherCode}</td>
-                    <td className="py-2 px-4 border">{row.teacherName}</td>
+            <div className=" overflow-x-auto w-full">
+              <table className=" table-fixed overflow-x-auto lg:w-full xs-w[900px] mt-4 border-collapse border">
+                <thead>
+                  <tr className="bg-cyan-500 text-white text-center">
+                    <th className="py-2 px-4 border">STT</th>
+                    <th className="py-2 px-4 border">Mã học phần</th>
+                    <th className="py-2 px-4 border">Tên môn học/học phần</th>
+                    <th className="py-2 px-4 border">Số tín chỉ</th>
+                    <th className="py-2 px-4 border">Thứ</th>
+                    <th className="py-2 px-4 border">Tiết</th>
+                    <th className="py-2 px-4 border">Loại lịch</th>
+                    <th className="py-2 px-4 border">Phòng</th>
+                    <th className="py-2 px-4 border">Nhóm</th>
+                    <th className="py-2 px-4 border">Giờ</th>
+                    <th className="py-2 px-4 border">Bắt đầu</th>
+                    <th className="py-2 px-4 border">Kết thúc</th>
+                    <th className="py-2 px-4 border">Mã giảng viên</th>
+                    <th className="py-2 px-4 border">Giảng viên</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {tableData.map((row, index) => (
+                    <tr key={index} className="text-center text-gray-400 text-sm">
+                      <td className="py-2 px-4 border">{row.stt}</td>
+                      <td className="py-2 px-4 border">{row.courseCode}</td>
+                      <td className="py-2 px-4 border">{row.courseName}</td>
+                      <td className="py-2 px-4 border">{row.credits}</td>
+                      <td className="py-2 px-4 border">{row.day}</td>
+                      <td className="py-2 px-4 border">{row.period}</td>
+                      <td className="py-2 px-4 border">{row.type}</td>
+                      <td className="py-2 px-4 border">{row.room}</td>
+                      <td className="py-2 px-4 border">{row.group}</td>
+                      <td className="py-2 px-4 border">{row.time}</td>
+                      <td className="py-2 px-4 border">{row.startDate}</td>
+                      <td className="py-2 px-4 border">{row.endDate}</td>
+                      <td className="py-2 px-4 border">{row.teacherCode}</td>
+                      <td className="py-2 px-4 border">{row.teacherName}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}

@@ -33,6 +33,29 @@ import Mailbox from "./pages/clien/Other/Mailbox/Mailbox";
 import DebtLookup from "./pages/clien/Tuition/DebtLookup/DebtLookup";
 import Login from "./Login/Login";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import ForgotPass from "./Login/ForgotPass/ForgotPass";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDLyjXHRJSOteNBKEhCXxs5MFaog8inzXo",
+  authDomain: "studentpage-4149f.firebaseapp.com",
+  projectId: "studentpage-4149f",
+  storageBucket: "studentpage-4149f.appspot.com",
+  messagingSenderId: "974929116918",
+  appId: "1:974929116918:web:d32d59bbbd022203d0f6d7",
+  measurementId: "G-W0PX727NVT"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 function App() {
   const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -335,6 +358,13 @@ function App() {
                   children={<DebtLookup handleLoading={handleLoading} />}
                 />
               </PrivateRoute>
+            }
+          />
+            <Route
+            exact
+            path="/quen-mat-khau"
+            element={
+                <ForgotPass/>
             }
           />
         </Routes>

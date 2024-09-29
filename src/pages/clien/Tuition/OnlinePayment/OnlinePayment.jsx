@@ -55,7 +55,7 @@ const OnlinePayment = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className=" w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div>
@@ -87,7 +87,9 @@ const OnlinePayment = () => {
                   </div>
                 </div>
                 <div className="border-t mt-4 border-gray-100 border-solid"></div>
-                <table className=" overflow-x-auto border border-gray-200 table-auto w-full">
+                <div className=" w-full overflow-x-auto">
+
+                <table className=" overflow-x-auto border border-gray-200 table-fixed xs:w-[900px] lg:w-full">
                   <thead>
                     <tr className="py-8 bg-cyan-500">
                       <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
@@ -245,6 +247,7 @@ const OnlinePayment = () => {
                     </tr>
                   </tbody>
                 </table>
+                </div>
               </div>
             </div>
           </div>

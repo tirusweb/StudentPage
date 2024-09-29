@@ -94,7 +94,7 @@ const RegisterCourse = () => {
   const FakeApiHP = [
     {
       id: 1,
-      code: "010100212981",
+      code: "01010021",
       name: "Kỹ năng phỏng vấn xin việc",
       class: "DHTI15A4HN",
       tc: 1,
@@ -105,7 +105,7 @@ const RegisterCourse = () => {
     },
     {
       id: 2,
-      code: "010100202924",
+      code: "01012924",
       name: "Lập trình ứng dụng doanh nghiệp trong .NET",
       class: "DHTI15A1HN",
       tc: 3,
@@ -116,7 +116,7 @@ const RegisterCourse = () => {
     },
     {
       id: 3,
-      code: "010100202706",
+      code: "010102706",
       name: "Lập trình web với Java",
       class: "DHTI15A4HN",
       tc: 3,
@@ -127,7 +127,7 @@ const RegisterCourse = () => {
     },
     {
       id: 4,
-      code: "010100018406",
+      code: "01010406",
       name: "Thực hành lập trình .NET",
       class: "DHTI15A4HN",
       tc: 3,
@@ -138,7 +138,7 @@ const RegisterCourse = () => {
     },
     {
       id: 5,
-      code: "010100212981",
+      code: "01010981",
       name: "Thực tập an toàn thông tin",
       class: "DHTI15A4HN",
       tc: 2,
@@ -149,7 +149,7 @@ const RegisterCourse = () => {
     },
     {
       id: 6,
-      code: "010100212981",
+      code: "01010981",
       name: "Thực hành web",
       class: "DHTI15A4HN",
       tc: 3,
@@ -167,7 +167,7 @@ const RegisterCourse = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container  xs:w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className="  xs:w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div>
@@ -189,7 +189,7 @@ const RegisterCourse = () => {
                     <option value="Hết hạn">1 (2023 - 2024)</option>
                     <option value="Hết hạn">2 (2023 - 2024)</option>
                   </select>
-                  <div className=" col-span-1 flex items-center">
+                  <div className=" lg:col-span-1  xs:col-span-3  flex  items-center">
                     <input
                       type="radio"
                       id="tatca"
@@ -203,7 +203,7 @@ const RegisterCourse = () => {
                       Học mới
                     </label>
                   </div>
-                  <div className=" col-span-1 flex items-center">
+                  <div className=" lg:col-span-1  xs:col-span-3 flex items-center">
                     <input
                       type="radio"
                       id="lichhoc"
@@ -217,7 +217,7 @@ const RegisterCourse = () => {
                       Học lại
                     </label>
                   </div>
-                  <div className="  col-span-2 flex items-center">
+                  <div className="  lg:col-span-2  xs:col-span-3 flex items-center">
                     <input
                       type="radio"
                       id="lichthi"
@@ -238,8 +238,8 @@ const RegisterCourse = () => {
                 Môn học/học phần đang chờ đăng ký
               </p>
 
-              <div className="">
-                <table className="overflow-x-auto border border-gray-200 table-auto w-full">
+              <div className=" overflow-x-auto w-full">
+                <table className="overflow-x-auto border border-gray-200 table-fixed xs:w-[900px] lg:w-full">
                   <thead>
                     <tr className="py-8 bg-cyan-500">
                       <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
@@ -312,19 +312,21 @@ const RegisterCourse = () => {
                     ))}
                   </tbody>
                 </table>
+              </div>
 
-                <div className="grid grid-cols-12 mt-12 gap-2">
-                  <div className="col-span-6">
-                    <p className="font-bold text-gray-400 xs:text-xs lg:text-sm mb-2 border-l-4 ml-2 border-solid border-red-500">
-                      Lớp học phần chờ đăng ký
+              <div className="grid grid-cols-12 mt-12 gap-2">
+                <div className="lg:col-span-6 xs:col-span-12">
+                  <p className="font-bold text-gray-400 xs:text-xs lg:text-sm mb-2 border-l-4 ml-2 border-solid border-red-500">
+                    Lớp học phần chờ đăng ký
+                  </p>
+                  <div className="flex items-center justify-end">
+                    <input type="checkbox" />
+                    <p className="uppercase text-red-500 font-bold xs:text-xs lg:text-sm ml-2">
+                      HIỂN THỊ LỚP HỌC PHẦN KHÔNG TRÙNG LỊCH
                     </p>
-                    <div className="flex items-center justify-end">
-                      <input type="checkbox" />
-                      <p className="uppercase text-red-500 font-bold xs:text-xs lg:text-sm ml-2">
-                        HIỂN THỊ LỚP HỌC PHẦN KHÔNG TRÙNG LỊCH
-                      </p>
-                    </div>
-                    <table className="table-auto w-full overflow-x-auto border border-gray-200">
+                  </div>
+                  <div className=" overflow-x-auto w-full">
+                    <table className="table-fixed xs:w-[900px]  lg:w-full overflow-x-auto border border-gray-200">
                       <thead>
                         <tr className="py-8 bg-cyan-500">
                           <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
@@ -371,12 +373,14 @@ const RegisterCourse = () => {
                       </tbody>
                     </table>
                   </div>
+                </div>
 
-                  <div className="col-span-6">
-                    <p className="font-bold text-gray-400 xs:text-xs lg:text-sm mb-2 border-l-4 ml-2 border-solid border-red-500">
-                      Chi tiết lớp học phần
-                    </p>
-                    <table className="w-full table-auto overflow-x-auto border border-gray-200">
+                <div className="lg:col-span-6 xs:col-span-12">
+                  <p className="font-bold text-gray-400 xs:text-xs lg:text-sm mb-2 border-l-4 ml-2 border-solid border-red-500">
+                    Chi tiết lớp học phần
+                  </p>
+                  <div className=" overflow-x-auto w-full ">
+                    <table className="lg:w-full xs:w-[900px] table-fixed overflow-x-auto border border-gray-200">
                       <thead>
                         <tr className="py-8 bg-cyan-500">
                           <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
@@ -446,127 +450,129 @@ const RegisterCourse = () => {
               <p className="mt-20 font-bold text-gray-400 xs:text-xs lg:text-sm mb-2 border-l-4 ml-2 border-solid border-red-500 ">
                 Môn học/học phần đang chờ đăng ký
               </p>
-              <table className="   overflow-x-auto border border-gray-200 table-auto w-full">
-                <thead>
-                  <tr className="py-8 bg-cyan-500">
-                    <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                      Thao tác
-                    </th>
-                    <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                      STT
-                    </th>
-                    <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                      Mã lớp HP
-                    </th>
-                    <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                      Tên môn học/HP
-                    </th>
-                    <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                      Lớp học dự kiến
-                    </th>
-                    <th className="text-center text-xs  border-r border-white border-solid text-white tracking-wider">
-                      TC
-                    </th>
-                    <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
-                      Nhóm TH
-                    </th>
-                    <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
-                      Học phí
-                    </th>
-                    <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
-                      Hạn nộp
-                    </th>
-                    <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
-                      Thu
-                    </th>
-                    <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
-                      Trạng thái ĐK
-                    </th>
-                    <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
-                      Ngày ĐK
-                    </th>
-                    <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
-                      TT lớp HP
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
-                    <td
-                      colSpan={6}
-                      className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
-                    >
-                      Tổng
-                    </td>
-
-                    <td
-                      colSpan={1}
-                      className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
-                    >
-                      17
-                    </td>
-                    <td
-                      colSpan={6}
-                      className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
-                    ></td>
-                  </tr>
-                  {FakeApiHP.map((listHP) => (
-                    <tr
-                      key={listHP.id}
-                      className="cursor-pointer bg-white hover:bg-yellow-100"
-                    >
-                      <td className="py-3 flex items-center justify-center pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="size-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                          />
-                        </svg>
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.id}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.code}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-left">
-                        {listHP.name}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.class}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.tc}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.tuition}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"></td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"></td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.status}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.day}
-                      </td>
-                      <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
-                        {listHP.tus}
-                      </td>
+              <div className=" overflow-x-auto w-full">
+                <table className="overflow-x-auto border border-gray-200 table-fixed xs:w-[900px] lg:w-full">
+                  <thead>
+                    <tr className="py-8 bg-cyan-500">
+                      <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                        Thao tác
+                      </th>
+                      <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                        STT
+                      </th>
+                      <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                        Mã lớp HP
+                      </th>
+                      <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                        Tên môn học/HP
+                      </th>
+                      <th className="text-center text-sm border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                        Lớp học dự kiến
+                      </th>
+                      <th className="text-center text-xs  border-r border-white border-solid text-white tracking-wider">
+                        TC
+                      </th>
+                      <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
+                        Nhóm TH
+                      </th>
+                      <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
+                        Học phí
+                      </th>
+                      <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
+                        Hạn nộp
+                      </th>
+                      <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
+                        Thu
+                      </th>
+                      <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
+                        Trạng thái ĐK
+                      </th>
+                      <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
+                        Ngày ĐK
+                      </th>
+                      <th className="text-center text-sm  border-r border-white border-solid text-white tracking-wider">
+                        TT lớp HP
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
+                      <td
+                        colSpan={6}
+                        className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                      >
+                        Tổng
+                      </td>
+
+                      <td
+                        colSpan={1}
+                        className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                      >
+                        17
+                      </td>
+                      <td
+                        colSpan={6}
+                        className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"
+                      ></td>
+                    </tr>
+                    {FakeApiHP.map((listHP) => (
+                      <tr
+                        key={listHP.id}
+                        className="cursor-pointer bg-white hover:bg-yellow-100"
+                      >
+                        <td className="py-3 flex items-center justify-center pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="size-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                            />
+                          </svg>
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.id}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.code}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-left">
+                          {listHP.name}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.class}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.tc}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.tuition}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"></td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center"></td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.status}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.day}
+                        </td>
+                        <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200  xs:text-xs text-center">
+                          {listHP.tus}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ const ListProfiles = () => {
   setTimeout(() => {
     setLoading(false);
   }, 1000);
+
   const APIlist = [
     {
       id: 1,
@@ -71,59 +72,36 @@ const ListProfiles = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className=" container w-screen  overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
-          <div className=" lg:mx-14 xs:mx-0  my-4">
+        <div className="w-screen overflow-y-auto xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+          <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
-              <div className="">
-                <h2 className=" text-blue-500 font-bold text-xl pl-3 pt-2">
-                  {" "}
+              <div>
+                <h2 className="text-blue-500 font-bold text-xl pl-3 pt-2">
                   Danh sách hồ sơ cá nhân
                 </h2>
-                <div className=" border-t mt-4  border-gray-100 border-solid"></div>
-                <div className="">
-                  <table className=" table-auto w-full ">
+                <div className="border-t mt-4 border-gray-100 border-solid"></div>
+                <div className="overflow-x-auto w-full">
+                  <table className="table-fixed xs:w-[900px] lg:w-full overflow-x-auto">
                     <thead>
-                      <tr className=" w-full h-10 text-center leading-10  bg-blue-500 text-white font-bold text-sm   grid grid-cols-12">
-                        <th className=" border border-gray-200 col-span-1">
-                          STT
-                        </th>
-                        <th className=" border border-gray-200 col-span-1">
-                          {" "}
-                          Mã hồ sơ
-                        </th>
-                        <th className=" border border-gray-200 col-span-6">
-                          Tên hồ sơ
-                        </th>
-                        <th className=" border border-gray-200 col-span-2">
-                          Ngày cập nhật
-                        </th>
-                        <th className=" border border-gray-200 col-span-1">
-                          Bắt buộc
-                        </th>
-                        <th className=" border border-gray-200 col-span-1">
-                          Đã nộp
-                        </th>
+                      <tr className="w-full h-10 text-center leading-10 bg-blue-500 text-white font-bold text-sm grid grid-cols-12">
+                        <th className="border border-gray-200 col-span-1">STT</th>
+                        <th className="border border-gray-200 col-span-1">Mã hồ sơ</th>
+                        <th className="border border-gray-200 col-span-6">Tên hồ sơ</th>
+                        <th className="border border-gray-200 col-span-2">Ngày cập nhật</th>
+                        <th className="border border-gray-200 col-span-1">Bắt buộc</th>
+                        <th className="border border-gray-200 col-span-1">Đã nộp</th>
                       </tr>
                     </thead>
                     <tbody>
                       {APIlist.map((list) => (
                         <tr
                           key={list.id}
-                          className=" hover:bg-blue-200 h-8 font-semibold lg:text-sm xs:text-xs text-gray-500 grid grid-cols-12"
+                          className="hover:bg-blue-200 h-8 font-semibold lg:text-sm xs:text-xs text-gray-500 grid grid-cols-12"
                         >
-                          <td className="border border-gray-200 px-2 text-center col-span-1">
-                            {list.id}
-                          </td>
-                          <td className="border border-gray-200 px-2 col-span-1 text-center ">
-                            {" "}
-                            {list.code}
-                          </td>
-                          <td className="border border-gray-200 px-2 col-span-6 text-left">
-                            {list.name}
-                          </td>
-                          <td className="border border-gray-200 px-2 col-span-2 text-center">
-                            {list.updateAt}
-                          </td>
+                          <td className="border border-gray-200 px-2 text-center col-span-1">{list.id}</td>
+                          <td className="border border-gray-200 px-2 col-span-1 text-center">{list.code}</td>
+                          <td className="border border-gray-200 px-2 col-span-6 text-left">{list.name}</td>
+                          <td className="border border-gray-200 px-2 col-span-2 text-center">{list.updateAt}</td>
                           <td className="border border-gray-200 px-2 text-center col-span-1">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -131,15 +109,9 @@ const ListProfiles = () => {
                               viewBox="0 0 24 24"
                               strokeWidth={1.5}
                               stroke="currentColor"
-                              className={`size-6 text-green-500 font-bold ${
-                                list.batbuoc === "" ? "  hidden" : " block"
-                              }`}
+                              className={`size-6 text-green-500 font-bold ${list.batbuoc === "" ? "hidden" : "block"}`}
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="m4.5 12.75 6 6 9-13.5"
-                              />
+                              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                             </svg>
                           </td>
                           <td className="border border-gray-200 px-2 text-center col-span-1">
@@ -149,15 +121,9 @@ const ListProfiles = () => {
                               viewBox="0 0 24 24"
                               strokeWidth={1.5}
                               stroke="currentColor"
-                              className={`size-6 text-green-500 font-bold ${
-                                list.done === "" ? " hidden" : "block"
-                              }`}
+                              className={`size-6 text-green-500 font-bold ${list.done === "" ? "hidden" : "block"}`}
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="m4.5 12.75 6 6 9-13.5"
-                              />
+                              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                             </svg>
                           </td>
                         </tr>

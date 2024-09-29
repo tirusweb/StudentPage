@@ -69,7 +69,7 @@ const DebtLookup = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className=" w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div>
@@ -77,7 +77,7 @@ const DebtLookup = () => {
                   <h2 className="text-blue-500 font-bold text-xl pl-3 pt-2">
                     Tra Cứu Công Nợ
                   </h2>
-                  <div className="flex items-center">
+                  <div className="flex flex-wrap items-center">
                     <div className="mt-6 mr-4 flex items-center mb-2">
                       <input
                         type="radio"
@@ -140,49 +140,52 @@ const DebtLookup = () => {
                     >
                       học phần được phép đăng ký thi
                     </p>
-                    <table
-                      className={`${
-                        isShow ? " inline-table" : "hidden"
-                      } overflow-x-auto border border-gray-200 table-auto w-full`}
-                    >
-                      <thead>
-                        <tr className="py-8 bg-cyan-500">
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            STT
-                          </th>
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            Mã HP
-                          </th>
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            Tên môn học
-                          </th>
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            TC/ĐVHT
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {FakeApi.map((list) => (
-                          <tr
-                            key={list.id}
-                            className="cursor-pointer bg-white hover:bg-yellow-100"
-                          >
-                            <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center">
-                              {list.id}
-                            </td>
-                            <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center">
-                              {list.code}
-                            </td>
-                            <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-left">
-                              {list.name}
-                            </td>
-                            <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center">
-                              {list.tc}
-                            </td>
+                    <div className=" overflow-x-auto w-full">
+
+                      <table
+                        className={`${
+                          isShow ? " inline-table" : "hidden"
+                        } overflow-x-auto border border-gray-200 table-fixed xs:w-[900px] lg:w-full`}
+                      >
+                        <thead>
+                          <tr className="py-8 bg-cyan-500">
+                            <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                              STT
+                            </th>
+                            <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                              Mã HP
+                            </th>
+                            <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                              Tên môn học
+                            </th>
+                            <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                              TC/ĐVHT
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {FakeApi.map((list) => (
+                            <tr
+                              key={list.id}
+                              className="cursor-pointer bg-white hover:bg-yellow-100"
+                            >
+                              <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center">
+                                {list.id}
+                              </td>
+                              <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center">
+                                {list.code}
+                              </td>
+                              <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-left">
+                                {list.name}
+                              </td>
+                              <td className="py-3 pl-2 font-normal text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center">
+                                {list.tc}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                     <p
                       className={`${
                         isShow ? " inline-table" : "hidden"
@@ -190,64 +193,66 @@ const DebtLookup = () => {
                     >
                       học phần đã đăng ký thi trong học kỳ này
                     </p>
+                        <div className=" w-full overflow-x-auto">
 
-                    <table
-                      className={`${
-                        isShow ? " inline-table" : "hidden"
-                      } overflow-x-auto border border-gray-200 table-auto w-full`}
-                    >
-                      <thead>
-                        <tr className="py-8 bg-cyan-500">
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            STT
-                          </th>
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            Mã LHP
-                          </th>
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            Tên môn học
-                          </th>
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            TC/ĐVHT
-                          </th>
-                          <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
-                            Nhóm thực hành
-                          </th>
-                          <th className="text-center text-white tracking-wider">
-                            Học phí
-                          </th>
-                          <th className="text-center text-white tracking-wider">
-                            L1
-                          </th>
-                          <th className="text-center text-white tracking-wider">
-                            L2
-                          </th>
-                          <th className="text-center text-white tracking-wider">
-                            Thu
-                          </th>
-                          <th className="text-center text-white tracking-wider">
-                            Trạng thái đăng ký
-                          </th>
-                          <th className="text-center text-white tracking-wider">
-                            Ngày đăng ký
-                          </th>
-                          <th className="text-center text-white tracking-wider">
-                            Trạng thái LHP
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
-                          <td
-                            colSpan="12"
-                            className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center"
+                          <table
+                            className={`${
+                              isShow ? " inline-table" : "hidden"
+                            } overflow-x-auto border border-gray-200 table-fixed xs:w-[900px] lg:w-full`}
                           >
-                            Không tìm thấy lớp học phần đã đăng ký trong học kỳ
-                            này
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                            <thead>
+                              <tr className="py-8 bg-cyan-500">
+                                <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                                  STT
+                                </th>
+                                <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                                  Mã LHP
+                                </th>
+                                <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                                  Tên môn học
+                                </th>
+                                <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                                  TC/ĐVHT
+                                </th>
+                                <th className="text-center border-r border-white border-solid px-3 py-2 text-white tracking-wider">
+                                  Nhóm thực hành
+                                </th>
+                                <th className="text-center text-white tracking-wider">
+                                  Học phí
+                                </th>
+                                <th className="text-center text-white tracking-wider">
+                                  L1
+                                </th>
+                                <th className="text-center text-white tracking-wider">
+                                  L2
+                                </th>
+                                <th className="text-center text-white tracking-wider">
+                                  Thu
+                                </th>
+                                <th className="text-center text-white tracking-wider">
+                                  Trạng thái đăng ký
+                                </th>
+                                <th className="text-center text-white tracking-wider">
+                                  Ngày đăng ký
+                                </th>
+                                <th className="text-center text-white tracking-wider">
+                                  Trạng thái LHP
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr className="cursor-pointer bg-gray-100 hover:bg-gray-200">
+                                <td
+                                  colSpan="12"
+                                  className="py-3 pl-2 font-bold text-gray-500 lg:text-sm border border-solid border-gray-200 xs:text-xs text-center"
+                                >
+                                  Không tìm thấy lớp học phần đã đăng ký trong học kỳ
+                                  này
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                   </>
                 )}
               </div>

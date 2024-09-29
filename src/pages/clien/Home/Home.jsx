@@ -110,7 +110,7 @@ const Home = () => {
                       {" "}
                       Thông tin sinh viên
                     </h2>
-                    <div className=" border-t mt-4  border-gray-100 border-solid"></div>
+                    <div className=" border-t mt-4 border-gray-100 border-solid"></div>
                     <div className=" grid md:grid-cols-3 xs:grid-cols-4 gap-2 my-8 my-x-4">
                       <div className=" md:ml-4 md:col-span-1 xs:col-start-2 xs:col-span-3   ">
                         <img

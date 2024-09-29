@@ -44,7 +44,7 @@ const UpdateStudent = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className=" container w-screen  overflow-y-auto shadow-lg h-full bg-gray-200">
+        <div className="  w-screen  overflow-y-auto shadow-lg h-full bg-gray-200">
           <div className=" lg:mx-14 xs:mx-0  my-4">
             <div className="bg-white pb-6 rounded">
               <div className="">

@@ -12,7 +12,7 @@ const SchoolCalender = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className=" container w-screen  overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className="  w-screen  overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
           <div className=" lg:mx-14 xs:mx-0  my-4">
             <div className="bg-white rounded pb-10">
               <div className="">
@@ -23,7 +23,7 @@ const SchoolCalender = () => {
                 <div className=" border-t mt-4  border-gray-100 border-solid"></div>
                 <div className=" grid grid-cols-3 mt-4 gap-4 mx-2">
                   <select
-                    className="border col-span-1 border-solid border-gray-200 rounded px-12 py-2 mr-4"
+                    className="border lg:col-span-1 xs:col-span-3 border-solid border-gray-200 rounded px-12 py-2 mr-4"
                     name="point"
                     id="points"
                   >
@@ -40,7 +40,7 @@ const SchoolCalender = () => {
                   </select>
                   {/*  */}
                   <select
-                    className="border col-span-1 border-solid border-gray-200 rounded px-12 py-2 mr-4"
+                    className="border lg:col-span-1 xs:col-span-3 border-solid border-gray-200 rounded px-12 py-2 mr-4"
                     name="point"
                     id="points"
                   >
@@ -57,7 +57,7 @@ const SchoolCalender = () => {
                   </select>
                   {/*  */}
                   <select
-                    className="border col-span-1 border-solid border-gray-200 rounded px-12 py-2 mr-4"
+                    className="border lg:col-span-1 xs:col-span-3 border-solid border-gray-200 rounded px-12 py-2 mr-4"
                     name="point"
                     id="points"
                   >
@@ -87,16 +87,16 @@ const SchoolCalender = () => {
                 </div>
                 <div className=" grid grid-cols-4 gap-4 mx-2 mt-4">
                   <input
-                    className=" col-span-1 text-gray-600 font-semibold text-sm outline-blue-200 px-2 py-2 border   border-gray-200 border-solid   "
+                    className=" lg:col-span-1 xs:col-span-2 text-gray-600 font-semibold text-sm outline-blue-200 px-2 py-2 border   border-gray-200 border-solid   "
                     placeholder="Lớp học"
                     type="text"
                   ></input>
                   <input
-                    className=" col-span-1 text-gray-600 font-semibold text-sm outline-blue-200 px-2 py-2 border   border-gray-200 border-solid   "
+                    className=" lg:col-span-1 xs:col-span-2 text-gray-600 font-semibold text-sm outline-blue-200 px-2 py-2 border   border-gray-200 border-solid   "
                     placeholder="Mã môn / Tên môn"
                     type="text"
                   ></input>
-                  <div className=" col-span-1 flex items-center ">
+                  <div className=" lg:col-span-1 xs:col-span-4 flex items-center ">
                     <div className="flex items-center">
                       <input
                         type="radio"
@@ -126,7 +126,7 @@ const SchoolCalender = () => {
                       </label>
                     </div>
                   </div>
-                  <div className=" col-span-1  ">
+                  <div className=" lg:col-span-1 xs:col-span-4 ">
                     <button className="px-4 py-2 rounded hover:bg-cyan-400 bg-cyan-500 text-white font-semibold text-sm ">
                       Xem lịch
                     </button>

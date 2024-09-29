@@ -369,7 +369,7 @@ const WeeklyCalendar = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="container w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+        <div className=" w-screen overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
           <div className="lg:mx-14 xs:mx-0 my-4">
             <div className="bg-white rounded pb-10">
               <div>
@@ -380,7 +380,7 @@ const WeeklyCalendar = () => {
 
                 {/* Filters */}
                 <div className="pl-3 mt-4 mx-2">
-                  <div className="flex items-center justify-end space-x-4">
+                  <div className="flex flex-wrap items-center xs:justify-start lg:justify-end space-x-4">
                     <div className="flex items-center mb-2">
                       <input
                         type="radio"
@@ -434,7 +434,7 @@ const WeeklyCalendar = () => {
 
                     <div
                       onClick={goToToday}
-                      className="flex items-center bg-cyan-500 px-4 py-2 rounded"
+                      className="flex mb-2 items-center bg-cyan-500 px-4 py-2 rounded"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -454,7 +454,7 @@ const WeeklyCalendar = () => {
                         Hiện tại
                       </button>
                     </div>
-                    <div className="flex items-center bg-cyan-500 px-4 py-2 rounded">
+                    <div className="flex mb-2 items-center bg-cyan-500 px-4 py-2 rounded">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -475,7 +475,7 @@ const WeeklyCalendar = () => {
                     </div>
                     <div
                       onClick={handleBackClick}
-                      className="flex items-center bg-cyan-500 px-4 py-2 rounded"
+                      className="flex mb-2 items-center bg-cyan-500 px-4 py-2 rounded"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -497,7 +497,7 @@ const WeeklyCalendar = () => {
                     </div>
                     <div
                       onClick={handleNextClick}
-                      className="flex items-center bg-cyan-500 px-4 py-2 rounded"
+                      className="flex mb-2 items-center bg-cyan-500 px-4 py-2 rounded"
                     >
                       <button className=" text-white font-semibold text-sm ">
                         Tiếp

@@ -3,7 +3,7 @@ import React from "react";
 const StudyResuit = () => {
   return (
     <>
-      <div className=" container w-screen  overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
+      <div className="  w-screen  overflow-y-auto lg:overflow-x-hidden xs:overflow-x-auto shadow-lg h-full bg-gray-200">
         <div className=" lg:mx-14 xs:mx-0  my-4">
           <div className="bg-white rounded pb-10">
             <div className="">
